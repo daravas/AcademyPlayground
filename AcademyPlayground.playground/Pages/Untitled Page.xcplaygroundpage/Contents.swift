@@ -3,33 +3,53 @@
 import UIKit
 import PlaygroundSupport
 
-
-let cfURL = Bundle.main.url(forResource: "SF-Pro-Rounded-Regular", withExtension: "otf")! as CFURL
+//cria nova fonte
+let cfURL = Bundle.main.url(forResource: "SF-Pro-Text-Regular", withExtension: "otf")! as CFURL
 CTFontManagerRegisterFontsForURL(cfURL, CTFontManagerScope.process, nil)
 
+//cria cor de fundo
+//let backgroundImage =  UIImage(imageLiteralResourceName: "background.png")
+//et backgroundColor = UIColor(patternImage: backgroundImage) cria cor a partir de uma imagem
+//let background = UIImageView(image: backgroundImage)
+
 class MyViewController : UIViewController {
+    
     override func loadView() {
         let view = UIView()
-        view.backgroundColor = .white
+        view.backgroundColor = .roxoBackground
         
-        let viewBook = UIView()
-        viewBook.frame = CGRect(x: 0, y: 0, width: 386, height: 768)
-        viewBook.backgroundColor = .blue
-
-        let textView = UITextView()
-        textView.frame = CGRect(x: 28, y: 55, width: 330, height: 400)
-        textView.text = " O playground Nome te mostras as descobertas e histórias das mulheres da ciência, tecnologia,engenharia e matemática. \n\nEncontre os objetos clicáveis e descubra mais sobre as mulheres, suas invenções e descobertas.\n\nVocê pode ainda trocar o cenário no código abaixo - são 2 ambientes:"
-        textView.textAlignment = .justified
-        textView.font = UIFont(name: "SF Pro Rounded", size: 25)
-
+        let textView = createTextView()
         
-        viewBook.addSubview(textView)
+        view.addSubview(textView)
         
-        view.addSubview(viewBook)
+        let btnNext = createButtonNext()
+        view.addSubview(btnNext)
+        
+        //view.addSubview(viewBook)
         self.view = view
     }
     
    
+}
+
+func createButtonNext() -> UIButton{
+    let btnNext = UIButton()
+    let image = UIImage(named: "btnNext.png")
+    btnNext.frame = CGRect(x: 1333, y: 425, width: 33, height: 52)
+    btnNext.setImage(image, for: .normal)
+    return btnNext
+}
+
+func createTextView() -> UITextView{
+    let textView = UITextView()
+    textView.frame = CGRect(x: 455, y: 364, width: 530, height: 200)
+    textView.text = " O playground Nome te mostra as descobertas e histórias das mulheres da ciência, tecnologia,engenharia e matemática"
+    textView.textAlignment = .center
+    textView.font = UIFont(name: "SF Pro text", size: 32)
+    textView.textColor = .white
+    textView.backgroundColor = .roxoBackground
+    
+    return textView
 }
 
 let vc = MyViewController(screenType: .mac, isPortrait: true)
