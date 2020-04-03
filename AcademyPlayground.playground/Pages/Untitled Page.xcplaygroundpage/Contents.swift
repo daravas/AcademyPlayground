@@ -6,7 +6,8 @@ import PlaygroundSupport
 //cria nova fonte
 let cfURL = Bundle.main.url(forResource: "SF-Pro-Text-Regular", withExtension: "otf")! as CFURL
 CTFontManagerRegisterFontsForURL(cfURL, CTFontManagerScope.process, nil)
-
+let cfURL2 = Bundle.main.url(forResource: "SF-Pro-Text-Bold", withExtension: "otf")! as CFURL
+CTFontManagerRegisterFontsForURL(cfURL2, CTFontManagerScope.process, nil)
 
 class MyViewController : UIViewController {
     
@@ -85,15 +86,56 @@ class MyThirdViewController : UIViewController{
         view.addSubview(btnPreview)
         
         let btnNext = createButtonNext()
+        btnNext.addTarget(nil, action: #selector(tapBtnNext), for: .touchUpInside)
         
         view.addSubview(btnNext)
         
-        //view.addSubview(viewBook)
         self.view = view
     }
     
     @objc func tapBtnPreview() {
         navigationController?.popViewController(animated: true)
+    }
+    
+    @objc func tapBtnNext() {
+        navigationController?.pushViewController(laboratoryViewController, animated: true)
+       }
+    
+}
+
+
+class LaboratoryViewController: UIViewController{
+    override func loadView() {
+        let view = UIView()
+        view.backgroundColor = .gray
+        
+        
+
+        view.addSubview(createLabel1())
+       view.addSubview(createLabelName())
+        
+        
+        self.view = view
+    }
+    
+    func createLabel1() -> UILabel{
+        let label = UILabel()
+        label.frame = CGRect(x: 644, y: 43, width: 152, height: 30)
+        label.text = "Você está no"
+        label.textColor = .roxoBackground
+        label.font = UIFont(name: "SFProtext-Regular", size: 25)
+        
+        return label
+    }
+    
+    func createLabelName() -> UILabel{
+        let label = UILabel()
+        label.frame = CGRect(x: 584, y: 88, width: 273, height: 48)
+        label.text = "LABORATÓRIO"
+        label.textColor = .roxoBackground
+        label.font = UIFont(name: "SFProtext-Bold", size: 40)
+        
+        return label
     }
     
 }
@@ -120,7 +162,7 @@ func createTextView(text:String) -> UITextView{
     textView.frame = CGRect(x: 455, y: 364, width: 530, height: 200)
     textView.text = text
     textView.textAlignment = .center
-    textView.font = UIFont(name: "SF Pro text", size: 32)
+    textView.font = UIFont(name: "SFProtext-Bold", size: 32)
     textView.textColor = .white
     textView.backgroundColor = .roxoBackground
     
@@ -130,6 +172,7 @@ func createTextView(text:String) -> UITextView{
 let myViewController = MyViewController()
 let mySecondViewController = MySecondViewController()
 let myThirdViewController = MyThirdViewController()
+let laboratoryViewController = LaboratoryViewController()
 
 let navigation = UINavigationController(screenType: .mac, isPortrait: true)
 navigation.navigationBar.isHidden = true
@@ -138,3 +181,5 @@ PlaygroundPage.current.liveView = navigation.scale(to: 0.5)
 
 //let vc = MyViewController(screenType: .mac, isPortrait: true)
 //PlaygroundPage.current.liveView = vc.scale(to: 0.4)
+
+
