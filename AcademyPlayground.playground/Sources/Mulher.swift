@@ -12,6 +12,12 @@ public class Mulher{
         self.imagem = imagem
     }
     
+    public init() {
+        self.nome = ""
+        self.descricao = ""
+        self.imagem  = UIImage()
+    }
+    
     public func setNome(nome:String){
         self.nome = nome
     }
