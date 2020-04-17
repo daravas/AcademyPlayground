@@ -19,7 +19,7 @@ class MyViewController : UIViewController {
     override func loadView() {
         let view = UIView()
         view.backgroundColor = .roxoBackground
-        let textViewText = " O playground Nome te mostra as descobertas e histórias das mulheres da ciência, tecnologia, engenharia e matemática"
+        let textViewText = " O playground FindHer te mostra as descobertas e histórias das mulheres da ciência, tecnologia, engenharia e matemática"
         let textView = createTextView(text: textViewText)
         
         
@@ -260,7 +260,6 @@ class RosalindViewController : UIViewController{
     
     @objc func tapBtnContinue() {
         if laboratoryViewController.tapM && laboratoryViewController.tapB && laboratoryViewController.tapP {
-            print("3 descobertos")
             navigationController?.pushViewController(finalLabViewController, animated: true)
             
         }else{
@@ -310,7 +309,6 @@ class MarieViewController : UIViewController{
     
     @objc func tapBtnContinue() {
         if laboratoryViewController.tapM && laboratoryViewController.tapB && laboratoryViewController.tapP {
-            print("3 descobertos")
             navigationController?.pushViewController(finalLabViewController, animated: true)
             
         }else{
@@ -359,7 +357,6 @@ class FrancoiseViewController: UIViewController{
     
     @objc func tapBtnContinue() {
         if laboratoryViewController.tapM && laboratoryViewController.tapB && laboratoryViewController.tapP {
-            print("3 descobertos")
             navigationController?.pushViewController(finalLabViewController, animated: true)
             
         }else{
@@ -524,7 +521,6 @@ public class JocellynViewController: UIViewController{
     
     @objc func tapBtnContinue() {
         if spaceViewController.tapR && spaceViewController.tapB && spaceViewController.tapP {
-            print("3 descobertos")
             navigationController?.pushViewController(finalSpaceViewController, animated: true)
             
         }else{
@@ -576,7 +572,6 @@ public class MargaretViewController: UIViewController{
     
     @objc func tapBtnContinue() {
         if spaceViewController.tapR && spaceViewController.tapB && spaceViewController.tapP {
-            print("3 descobertos")
             navigationController?.pushViewController(finalSpaceViewController, animated: true)
         }else{
             navigationController?.popViewController(animated: true)
@@ -627,7 +622,6 @@ public class KatieViewController: UIViewController{
     
     @objc func tapBtnContinue() {
         if spaceViewController.tapR && spaceViewController.tapB && spaceViewController.tapP {
-            print("3 descobertos")
             navigationController?.pushViewController(finalSpaceViewController, animated: true)
         }else{
             navigationController?.popViewController(animated: true)
@@ -739,7 +733,6 @@ public class FinalLabViewController : UIViewController{
     }
     
     @objc func tapBtn(){
-        print("toque")
         navigationController?.pushViewController(spaceViewController, animated: true)
     }
     
